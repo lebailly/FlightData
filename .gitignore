@@ -1,0 +1,7 @@
+credentials.yml
+images/
+tracklogs/
+geckodriver*
+*.json
+.DS_Store
+__pycache__/
