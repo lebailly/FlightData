@@ -101,7 +101,7 @@ class ForeFlightTrackLogs(ForeFlightBase):
             writer.writeheader()
             writer.writerows(meta_data)
 
-    def download_tracklog_data(self, download_kml=False):
+    def run(self, download_kml=False):
         self.get_log_uuids()
         self.download_all(download_kml)
         self.logout()
@@ -181,6 +181,7 @@ class ForeFlightLogs(ForeFlightBase):
 
         self.get_logbook()
         self.get_pics()
+        self.logout()
 
 
 class ForeFlightUserWaypoints(ForeFlightBase):
@@ -196,3 +197,4 @@ class ForeFlightUserWaypoints(ForeFlightBase):
         self.get_waypoints()
         with open('waypoints.json', 'w') as fp:
             json.dump(self.waypoints, fp, indent=4)
+        self.logout()
